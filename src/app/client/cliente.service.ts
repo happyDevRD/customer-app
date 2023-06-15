@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CLIENTS } from "./clients.json";
+// import { CLIENTS } from "./clients.json";
 import { Client } from './client';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -9,10 +11,13 @@ import { Observable, of } from 'rxjs';
 })
 export class ClienteService {
 
-  constructor() { }
+  private urlEndpoint: string = "http://localhost:8080/api/clientes";
+  constructor( private http: HttpClient) { }
 
   getClients(): Observable<Client[]> {
-    return of(CLIENTS);
+    return this.http.get<Client[]> (this.urlEndpoint).pipe(
+      map( response => response as Client[]  )
+    );
 
   }
 }
