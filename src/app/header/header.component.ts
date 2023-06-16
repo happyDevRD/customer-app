@@ -8,6 +8,6 @@ import { Component } from "@angular/core";
 })
 export class HeaderComponent{
 
-  title: string = 'App angular Spring';
+  title: string = 'Clientes-App';
 
 }

@@ -4,17 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DirectivaComponent } from './directiva/directiva.component';
 import { ClienteComponent } from './client/client.component';
 import { ClienteService } from './client/cliente.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormComponent } from './src/app/client/form/form.component';
+import { FormComponent } from './client/form.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:'', redirectTo:'/clientes', pathMatch:'full'},
-  {path:'directivas', component: DirectivaComponent},
   {path:'clients', component: ClienteComponent},
+  {path:'clients/form', component: FormComponent}
 ]
 
 
@@ -23,13 +23,13 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DirectivaComponent,
     ClienteComponent,
     FormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ClienteService],

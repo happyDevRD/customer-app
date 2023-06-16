@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { CLIENTS } from "./clients.json";
 import { Client } from './client';
 import { Observable, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
